@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Minimal example of an node API in Docker",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "winston": "^2.4.0",
+    "winston-elasticsearch": "^0.5.7",
+    "winston-meta-wrapper": "^1.2.0"
+  }
+}
