@@ -6,5 +6,8 @@ do
   sleep 1
 done
 
+echo "[SETUP] Setting node name to '$(cat /etc/hostname)'"
+export NODE_NAME=$(cat /etc/hostname)
+
 echo "[SETUP] Running metricbeat"
 metricbeat -system.hostfs=/hostfs
