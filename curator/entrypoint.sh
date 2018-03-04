@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo "[SETUP] Waiting for elasticsearch to start..."
-until wget -qO- http://elasticsearch:9200/_cat/indices >/dev/null 2>&1
+echo "[SETUP] Waiting for elasticsearch to start"
+until wget -qO- http://elasticsearch:9200/ >/dev/null 2>&1
 do
   sleep 1
 done

@@ -1,0 +1,36 @@
+# General configuration paths
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# Write into elastic search
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+
+# Metric modules
+metricbeat.modules:
+- module: system
+  enabled: true
+  period: 10s
+  metricsets:
+    - cpu             # CPU usage
+    - filesystem      # File system usage for each mountpoint
+    - fsstat          # File system summary metrics
+    - load            # CPU load averages
+    - memory          # Memory usage
+    - network         # Network IO
+    - uptime          # System Uptime
+  cpu.metrics:  ["percentages"]
+  core.metrics: ["percentages"]
+- module: docker
+  enabled: true
+  period: 10s
+  metricsets:
+    - container
+    - cpu
+    - diskio
+    - healthcheck
+    - info
+    - memory
+    - network
+  hosts: ["unix:///var/run/docker.sock"]

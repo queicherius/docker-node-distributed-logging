@@ -11,6 +11,8 @@ RUN npm install
 COPY ./src /application/src
 
 # Run the server
-ENV NODE_ENV production
 EXPOSE 3000
-CMD npm start
+ENV NODE_ENV production
+
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT /entrypoint.sh
