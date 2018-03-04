@@ -6,6 +6,10 @@ metricbeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
 
+# Setup path for Kibana (has to be triggered manually)
+setup.kibana:
+  host: "kibana:5601"
+
 # Write into elastic search
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
